@@ -36,6 +36,11 @@ Updated for Astro v6!
 
 ## 🚀 Getting Started
 
+### Live Demo
+
+- Production demo: <https://astrology-i18n.3201300093.workers.dev>
+- Screenshot preview: `public/screenshot.webp`
+
 ### Prerequisites
 
 - **Node.js**: v20.0.0 or higher
