@@ -14,7 +14,7 @@ export default defineConfig({
     imageService: { build: 'compile', runtime: 'cloudflare-binding' },
   }),
   output: 'server',
-  site: 'https://astrology-i18n.vercel.app',
+  site: 'https://astrology-i18n.3201300093.workers.dev',
   trailingSlash: 'always',
 
   prefetch: {

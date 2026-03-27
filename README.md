@@ -2,9 +2,11 @@
 
 # Astrology i18n — Multilingual Astro Blog Theme
 
-[![Astro](https://img.shields.io/badge/Astro-5-BC52EE?logo=astro)](https://astro.build) [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com) [![Node](https://img.shields.io/badge/Node-%E2%89%A5%2020-339933?logo=node.js)](https://nodejs.org) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Astro](https://img.shields.io/badge/Astro-6-BC52EE?logo=astro)](https://astro.build) [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com) [![Node](https://img.shields.io/badge/Node-%E2%89%A5%2020-339933?logo=node.js)](https://nodejs.org) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-A professional, multilingual photo-and-prose theme built with **Astro 5** and **Tailwind CSS 4**. Start your global storytelling journey with per-locale routes, centralized dictionaries, SEO optimization, and a modern, responsive design.
+A professional, multilingual photo-and-prose theme built with **Astro 6** and **Tailwind CSS 4**. Start your global storytelling journey with per-locale routes, centralized dictionaries, SEO optimization, and a modern, responsive design.
+
+Updated for Astro v6!
 
 <a href="https://pagespeed.web.dev/analysis/https-astrology-yo7bu6q1-edgeone-app/nij513nbyr?form_factor=mobile">
   <img src="public/astrology-i18n-lighthouse-score.svg" alt="Lighthouse Score" width="300" />
@@ -28,7 +30,7 @@ A professional, multilingual photo-and-prose theme built with **Astro 5** and **
 - **Deep Internationalization (i18n)**: Native support for language-prefixed routes (`/[lang]/`), centralized JSON dictionaries, and automatic fallback handling.
 - **Content Collections**: Type-safe frontmatter for Posts, Pages, and Authors.
 - **Performance First**: High Lighthouse scores with optimized assets, link prefetching, and minimal client-side JS.
-- **Astro 5 & Tailwind 4**: Built on the latest, cutting-edge stack for maximum developer experience.
+- **Astro 6 & Tailwind 4**: Built on the latest, cutting-edge stack for maximum developer experience.
 - **SEO Optimized**: Built-in canonical URLs, Open Graph tags, JSON-LD, sitemaps, and RSS feeds per locale.
 - **Full-Text Search**: Fast, client-side search powered by `astro-pagefind`.
 
