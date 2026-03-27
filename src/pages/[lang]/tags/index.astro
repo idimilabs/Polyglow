@@ -1,8 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
 import LandingLayout from '@/layouts/LandingLayout.astro';
 import type { Lang } from '@/utils/i18n';
 import { DEFAULT_LANG, SUPPORTED_LANGS } from '@/utils/i18n';
+import { countPostsByTag } from '@/utils/posts';
 import { t } from '@/utils/translations';
 
 export const prerender = true;
@@ -12,8 +12,6 @@ export async function getStaticPaths() {
 }
 
 const lang = ((Astro.params.lang as Lang) || DEFAULT_LANG) as Lang;
-
-const all = await getCollection('post', (p) => !p.data.draft && p.data.locales === lang);
 
 const TAG_KEYS = [
   'reflect',
@@ -28,11 +26,7 @@ const TAG_KEYS = [
 ] as const;
 
 function countFor(key: (typeof TAG_KEYS)[number]) {
-  const translated = String(t(lang as any, `tags.${key}`)).toLowerCase();
-  return all.filter((p) => {
-    const tags = (p.data.tags || []).map((x: string) => String(x).toLowerCase());
-    return tags.includes(translated) || tags.includes(String(key));
-  }).length;
+  return countPostsByTag(lang, key);
 }
 
 const items = TAG_KEYS.map((key) => ({

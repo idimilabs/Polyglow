@@ -1,14 +1,15 @@
 ---
-import { getCollection, type CollectionEntry, render } from 'astro:content';
+import { type CollectionEntry, render } from 'astro:content';
 import RelatedList from '@/widgets/RelatedList.astro';
 import PostLayout from '@/layouts/PostLayout.astro';
 import type { Lang } from '@/utils/i18n';
 import { DEFAULT_LANG, SUPPORTED_LANGS, toAbsolute } from '@/utils/i18n';
+import { getPublishedPosts } from '@/utils/posts';
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const posts = await getCollection('post', (entry) => !entry.data.draft);
+  const posts = await getPublishedPosts();
 
   const paths = posts.flatMap((entry) => {
     const lang = entry.data.locales as Lang;

@@ -1,8 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
 import LandingLayout from '@/layouts/LandingLayout.astro';
 import type { Lang } from '@/utils/i18n';
 import { DEFAULT_LANG, SUPPORTED_LANGS } from '@/utils/i18n';
+import { countPostsByCategory } from '@/utils/posts';
 import { t } from '@/utils/translations';
 
 export const prerender = true;
@@ -13,16 +13,10 @@ export async function getStaticPaths() {
 
 const lang = ((Astro.params.lang as Lang) || DEFAULT_LANG) as Lang;
 
-const all = await getCollection('post', (p) => !p.data.draft && p.data.locales === lang);
-
 const CATEGORY_KEYS = ['build', 'invest', 'life'] as const;
 
 function countFor(key: (typeof CATEGORY_KEYS)[number]) {
-  const translated = String(t(lang as any, `categories.${key}`)).toLowerCase();
-  return all.filter((p) => {
-    const c = String(p.data.category || '').toLowerCase();
-    return c === translated || c === key;
-  }).length;
+  return countPostsByCategory(lang, key);
 }
 
 const items = CATEGORY_KEYS.map((key) => ({

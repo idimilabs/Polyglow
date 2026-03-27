@@ -16,6 +16,9 @@ export default defineConfig({
   output: 'server',
   site: 'https://astrology-i18n.3201300093.workers.dev',
   trailingSlash: 'always',
+  build: {
+    concurrency: 4,
+  },
 
   prefetch: {
     defaultStrategy: 'viewport',

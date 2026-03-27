@@ -8,7 +8,7 @@ import { t } from '@/utils/translations';
 import GitHubActivityCalendar from '@/widgets/GitHubActivityCalendar.astro';
 import LatestList from '@/widgets/LatestList.astro';
 import { Icon } from 'astro-icon/components';
-import { getCollection } from 'astro:content';
+import { getAuthorForLang } from '@/utils/authors';
 
 export const prerender = true;
 
@@ -18,9 +18,7 @@ export async function getStaticPaths() {
 
 const lang = ((Astro.params.lang as Lang) || DEFAULT_LANG) as Lang;
 
-const authors = await getCollection('author', (a) => !a.data.draft);
-const pick = (l: Lang) => authors.find((a) => a.data.locales === l);
-const entry = pick(lang) || pick(DEFAULT_LANG as Lang) || authors[0];
+const entry = getAuthorForLang(lang) || getAuthorForLang(DEFAULT_LANG as Lang);
 
 const authorName = entry?.data.name || 'Author';
 const pageTitle = t(lang, 'pages.author.title') || (lang === 'zh' ? '作者' : 'Author');

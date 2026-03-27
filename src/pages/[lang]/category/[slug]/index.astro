@@ -1,5 +1,4 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
 import LandingLayout from '@/layouts/LandingLayout.astro';
 import Pagination from '@/features/Pagination.astro';
 import PostCardCover from '@/cards/PostCardCover.astro';
@@ -7,6 +6,7 @@ import CardWithPriority from '@/features/CardWithPriority.astro';
 import type { Lang } from '@/utils/i18n';
 import { DEFAULT_LANG, SUPPORTED_LANGS } from '@/utils/i18n';
 import { t } from '@/utils/translations';
+import { getPostsByCategory, postUrl, type PostEntry } from '@/utils/posts';
 
 export const prerender = true;
 
@@ -17,26 +17,11 @@ export async function getStaticPaths() {
   );
 }
 
-type Post = CollectionEntry<'post'>;
-
-function toUrl(entry: Post, lang: Lang): string {
-  const idWithoutExt = entry.id.replace(/\.(md|mdx|markdown)$/i, '');
-  const slug = idWithoutExt.replace(new RegExp(`^${lang}/`), '');
-  return `/${lang}/posts/${slug}/`;
-}
-
 const PAGE_SIZE = 12;
 const lang = ((Astro.params.lang as Lang) || DEFAULT_LANG) as Lang;
 const slug = String(Astro.params.slug || '');
 
-const posts = await getCollection('post', (p) => !p.data.draft && p.data.locales === (lang as any));
-const translated = String(t(lang as any, `categories.${slug}`)).toLowerCase();
-const all = posts
-  .filter((p) => {
-    const c = String(p.data.category || '').toLowerCase();
-    return c === translated || c === slug;
-  })
-  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+const all = getPostsByCategory(lang, slug);
 
 const items = all.slice(0, PAGE_SIZE);
 const total = all.length;
@@ -76,7 +61,7 @@ const description = h2;
           component={PostCardCover}
           index={idx}
           props={{
-            href: toUrl(p, lang),
+            href: postUrl(p, lang),
             imageSrc: p.data.heroImage,
             imageAlt: p.data.heroImageAlt,
             title: p.data.title,

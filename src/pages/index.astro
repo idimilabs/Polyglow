@@ -1,5 +1,4 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
 import LandingLayout from '@/layouts/LandingLayout.astro';
 import PostCardCover from '@/cards/PostCardCover.astro';
 import PostCardDescription from '@/cards/PostCardDescription.astro';
@@ -9,24 +8,14 @@ import CardWithPriority from '@/features/CardWithPriority.astro';
 import type { Lang } from '@/utils/i18n';
 import { DEFAULT_LANG } from '@/utils/i18n';
 import { t } from '@/utils/translations';
+import { getPostsForLang, postUrl, type PostEntry } from '@/utils/posts';
 
 export const prerender = true;
-
-type Post = CollectionEntry<'post'>;
-
-function toUrl(entry: Post, lang: Lang): string {
-  const idWithoutExt = entry.id.replace(/\.(md|mdx|markdown)$/i, '');
-  const slug = idWithoutExt.replace(new RegExp(`^${lang}/`), '');
-  return `/${lang}/posts/${slug}/`;
-}
 
 const PAGE_SIZE = 12;
 const lang = DEFAULT_LANG as Lang;
 
-const posts = await getCollection('post', (p) => !p.data.draft && p.data.locales === (lang as any));
-const all = posts.sort(
-  (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
-);
+const all = getPostsForLang(lang);
 const items = all.slice(0, PAGE_SIZE);
 
 const total = all.length;
@@ -68,7 +57,7 @@ const title = t(lang, 'headings.home.title') || h1;
           component={PostCardCover}
           index={idx}
           props={{
-            href: toUrl(p, lang),
+            href: postUrl(p as PostEntry, lang),
             imageSrc: p.data.heroImage,
             imageAlt: p.data.heroImageAlt,
             title: p.data.title,
@@ -90,7 +79,7 @@ const title = t(lang, 'headings.home.title') || h1;
             component={PostCardHorizontal}
             index={0}
             props={{
-              href: toUrl(items[0], lang),
+              href: postUrl(items[0] as PostEntry, lang),
               imageSrc: items[0].data.heroImage,
               imageAlt: items[0].data.heroImageAlt,
               title: items[0].data.title,
@@ -109,7 +98,7 @@ const title = t(lang, 'headings.home.title') || h1;
         .slice(1, 3)
         .map((p) => (
           <PostCardDescription
-            href={toUrl(p, lang)}
+            href={postUrl(p as PostEntry, lang)}
             imageSrc={p.data.heroImage}
             imageAlt={p.data.heroImageAlt}
             title={p.data.title}
@@ -126,7 +115,7 @@ const title = t(lang, 'headings.home.title') || h1;
         i === arr.length - 1 && arr.length % 2 === 1 ? (
           <div class="col-span-2">
             <PostCardCover
-              href={toUrl(p, lang)}
+              href={postUrl(p as PostEntry, lang)}
               imageSrc={p.data.heroImage}
               imageAlt={p.data.heroImageAlt}
               title={p.data.title}
@@ -138,7 +127,7 @@ const title = t(lang, 'headings.home.title') || h1;
           </div>
         ) : (
           <PostCardCover
-            href={toUrl(p, lang)}
+            href={postUrl(p as PostEntry, lang)}
             imageSrc={p.data.heroImage}
             imageAlt={p.data.heroImageAlt}
             title={p.data.title}
@@ -160,7 +149,7 @@ const title = t(lang, 'headings.home.title') || h1;
             component={PostCardHorizontal}
             index={0}
             props={{
-              href: toUrl(items[0], lang),
+              href: postUrl(items[0] as PostEntry, lang),
               imageSrc: items[0].data.heroImage,
               imageAlt: items[0].data.heroImageAlt,
               title: items[0].data.title,
@@ -178,7 +167,7 @@ const title = t(lang, 'headings.home.title') || h1;
       items.slice(1, 3).map((p) => (
         <div class="col-span-12 md:col-span-6">
           <PostCardDescription
-            href={toUrl(p, lang)}
+            href={postUrl(p as PostEntry, lang)}
             imageSrc={p.data.heroImage}
             imageAlt={p.data.heroImageAlt}
             title={p.data.title}
@@ -195,7 +184,7 @@ const title = t(lang, 'headings.home.title') || h1;
       items.slice(3, 12).map((p) => (
         <div class="col-span-12 md:col-span-4">
           <PostCardCover
-            href={toUrl(p, lang)}
+            href={postUrl(p as PostEntry, lang)}
             imageSrc={p.data.heroImage}
             imageAlt={p.data.heroImageAlt}
             title={p.data.title}

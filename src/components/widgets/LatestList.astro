@@ -1,8 +1,8 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
 import type { Lang } from '@/utils/i18n';
 import PostCardCover from '@/cards/PostCardCover.astro';
 import { t } from '@/utils/translations';
+import { getPostsForLang, postUrl, type PostEntry } from '@/utils/posts';
 
 interface Props {
   lang: Lang;
@@ -13,16 +13,7 @@ interface Props {
 
 const { lang, limit = 3, showTitle = true, class: className } = Astro.props as Props;
 
-const all = await getCollection('post', (p) => !p.data.draft && p.data.locales === lang);
-const posts = all
-  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
-  .slice(0, limit);
-
-function toUrl(entry: CollectionEntry<'post'>, lang: Lang): string {
-  const idWithoutExt = entry.id.replace(/\.(md|mdx|markdown)$/i, '');
-  const slug = idWithoutExt.replace(new RegExp(`^${lang}/`), '');
-  return `/${lang}/posts/${slug}/`;
-}
+const posts = getPostsForLang(lang).slice(0, limit);
 ---
 
 {
@@ -32,7 +23,7 @@ function toUrl(entry: CollectionEntry<'post'>, lang: Lang): string {
       <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
         {posts.map((p) => (
           <PostCardCover
-            href={toUrl(p, lang)}
+            href={postUrl(p as PostEntry, lang)}
             imageSrc={p.data.heroImage}
             imageAlt={p.data.heroImageAlt}
             title={p.data.title}
