@@ -1,5 +1,5 @@
 ---
-import { Image, Picture, inferRemoteSize } from 'astro:assets';
+import { Image, Picture } from 'astro:assets';
 
 type LayoutType = 'constrained' | 'full-width' | 'fixed' | 'none';
 type FitType = 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
@@ -50,9 +50,8 @@ const pictureFormats: Array<'avif'> = ['avif'];
 const isRemote = typeof src === 'string' && /^(https?:)?\/\/.*/.test(src);
 
 const shouldInfer = inferSize ?? false;
-const remoteSize = isRemote ? await inferRemoteSize(src) : undefined;
-const resolvedWidth = typeof width === 'number' ? width : remoteSize?.width;
-const resolvedHeight = typeof height === 'number' ? height : remoteSize?.height;
+const resolvedWidth = typeof width === 'number' ? width : undefined;
+const resolvedHeight = typeof height === 'number' ? height : undefined;
 
 // CSS object-fit and object-position styles (ensure proper browser-side cropping)
 const fitClass =
@@ -119,7 +118,18 @@ const basePictureProps = {
 ---
 
 {
-  asPicture ? (
+  isRemote ? (
+    <img
+      src={src}
+      alt={alt}
+      class={imgClass}
+      width={resolvedWidth}
+      height={resolvedHeight}
+      loading={resolvedLoading}
+      decoding={resolvedDecoding}
+      fetchpriority={resolvedFetchpriority}
+    />
+  ) : asPicture ? (
     <Picture src={src as any} {...basePictureProps} {...(useInferSize ? { inferSize: true } : {})} />
   ) : (
     <Image src={src as any} {...baseImgProps} {...(useInferSize ? { inferSize: true } : {})} />

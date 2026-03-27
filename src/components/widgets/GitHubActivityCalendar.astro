@@ -105,6 +105,9 @@ async function fetchData(
   repo?: string,
 ): Promise<GitHubActivityApiResponse> {
   const token = getSecret('GITHUB_TOKEN') || import.meta.env.GITHUB_TOKEN;
+  if (!token) {
+    return makeEmptyLastYear();
+  }
   if (token) {
     const now = new Date();
     let from: Date;

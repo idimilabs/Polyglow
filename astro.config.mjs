@@ -1,5 +1,4 @@
 import astroExpressiveCode from 'astro-expressive-code';
-import cloudflare from '@astrojs/cloudflare';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
@@ -10,10 +9,7 @@ import { defineConfig } from 'astro/config';
 import { remarkModifiedTime } from './src/utils/remark-modified-time.mjs';
 
 export default defineConfig({
-  adapter: cloudflare({
-    imageService: { build: 'compile', runtime: 'cloudflare-binding' },
-  }),
-  output: 'server',
+  output: 'static',
   site: 'https://astrology.idimi.com',
   trailingSlash: 'always',
   build: {
