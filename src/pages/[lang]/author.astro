@@ -10,6 +10,8 @@ import LatestList from '@/widgets/LatestList.astro';
 import { Icon } from 'astro-icon/components';
 import { getCollection } from 'astro:content';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   return SUPPORTED_LANGS.map((lang) => ({ params: { lang } }));
 }

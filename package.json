@@ -32,6 +32,7 @@
     "tailwindcss": "^4.1.12"
   },
   "devDependencies": {
+    "@astrojs/cloudflare": "^13.1.4",
     "@iconify-json/lucide": "^1.2.81",
     "@tailwindcss/typography": "^0.5.16",
     "prettier": "3.8.1",

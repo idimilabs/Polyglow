@@ -8,6 +8,8 @@ import type { Lang } from '@/utils/i18n';
 import { DEFAULT_LANG, SUPPORTED_LANGS } from '@/utils/i18n';
 import { t } from '@/utils/translations';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const CATEGORY_KEYS = ['build', 'invest', 'life'] as const;
   return SUPPORTED_LANGS.flatMap((lang) =>

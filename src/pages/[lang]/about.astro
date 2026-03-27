@@ -7,6 +7,8 @@ import type { Lang } from '@/utils/i18n';
 import { DEFAULT_LANG } from '@/utils/i18n';
 import { t } from '@/utils/translations';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const pages = await getCollection('page');
   const langs = Array.from(new Set(pages.map((p) => p.data.locales)));

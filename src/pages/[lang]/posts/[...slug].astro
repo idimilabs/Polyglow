@@ -6,6 +6,8 @@ import PostLayout from '@/layouts/PostLayout.astro';
 import type { Lang } from '@/utils/i18n';
 import { DEFAULT_LANG, SUPPORTED_LANGS, toAbsolute } from '@/utils/i18n';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const posts = await getCollection('post', (entry) => !entry.data.draft);
 

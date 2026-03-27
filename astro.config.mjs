@@ -1,4 +1,5 @@
 import astroExpressiveCode from 'astro-expressive-code';
+import cloudflare from '@astrojs/cloudflare';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
@@ -10,6 +11,8 @@ import { remarkModifiedTime } from './src/utils/remark-modified-time.mjs';
 import { remarkRemoteImages } from './src/utils/remark-remote-images.mjs';
 
 export default defineConfig({
+  adapter: cloudflare(),
+  output: 'server',
   site: 'https://astrology-i18n.vercel.app',
   trailingSlash: 'always',
 

@@ -10,6 +10,8 @@ import type { Lang } from '@/utils/i18n';
 import { DEFAULT_LANG } from '@/utils/i18n';
 import { t } from '@/utils/translations';
 
+export const prerender = true;
+
 type Post = CollectionEntry<'post'>;
 
 function toUrl(entry: Post, lang: Lang): string {
