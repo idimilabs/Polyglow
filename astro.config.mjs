@@ -11,6 +11,7 @@ import { remarkModifiedTime } from './src/utils/remark-modified-time.mjs';
 export default defineConfig({
   output: 'static',
   site: 'https://astrology.idimi.com',
+  cacheDir: './astro_cache',
   trailingSlash: 'always',
   build: {
     concurrency: 6,

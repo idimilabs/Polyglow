@@ -2,7 +2,7 @@
 import type { Lang } from '@/utils/i18n';
 import PostCardCover from '@/cards/PostCardCover.astro';
 import { t } from '@/utils/translations';
-import { getPostsForLang, postUrl, type PostEntry } from '@/utils/posts';
+import { getRelatedPosts, postUrl, type PostEntry } from '@/utils/posts';
 
 interface Props {
   lang: Lang;
@@ -14,9 +14,7 @@ interface Props {
 
 const { lang, category, excludeId, limit = 3, showTitle = true } = Astro.props as Props;
 
-const posts = getPostsForLang(lang)
-  .filter((p) => p.data.category === category && p.id !== excludeId)
-  .slice(0, limit);
+const posts = getRelatedPosts(lang, category, excludeId, limit);
 ---
 
 {

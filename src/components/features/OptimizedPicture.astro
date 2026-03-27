@@ -49,9 +49,7 @@ const pictureFormats: Array<'avif'> = ['avif'];
 
 const isRemote = typeof src === 'string' && /^(https?:)?\/\/.*/.test(src);
 
-const shouldInfer = inferSize ?? false;
-const resolvedWidth = typeof width === 'number' ? width : undefined;
-const resolvedHeight = typeof height === 'number' ? height : undefined;
+const shouldInfer = inferSize ?? isRemote;
 
 // CSS object-fit and object-position styles (ensure proper browser-side cropping)
 const fitClass =
@@ -118,20 +116,27 @@ const basePictureProps = {
 ---
 
 {
-  isRemote ? (
+  isRemote && !shouldInfer ? (
     <img
       src={src}
       alt={alt}
       class={imgClass}
-      width={resolvedWidth}
-      height={resolvedHeight}
       loading={resolvedLoading}
-      decoding={resolvedDecoding}
       fetchpriority={resolvedFetchpriority}
+      decoding={resolvedDecoding}
+      {...(sizes ? { sizes } : {})}
     />
   ) : asPicture ? (
-    <Picture src={src as any} {...basePictureProps} {...(useInferSize ? { inferSize: true } : {})} />
+    shouldInfer ? (
+      <Picture src={src as any} {...basePictureProps} inferSize={true} />
+    ) : (
+      <Picture src={src as any} {...basePictureProps} inferSize={false} />
+    )
   ) : (
-    <Image src={src as any} {...baseImgProps} {...(useInferSize ? { inferSize: true } : {})} />
+    shouldInfer ? (
+      <Image src={src as any} {...baseImgProps} inferSize={true} />
+    ) : (
+      <Image src={src as any} {...baseImgProps} inferSize={false} />
+    )
   )
 }

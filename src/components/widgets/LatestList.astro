@@ -2,7 +2,7 @@
 import type { Lang } from '@/utils/i18n';
 import PostCardCover from '@/cards/PostCardCover.astro';
 import { t } from '@/utils/translations';
-import { getPostsForLang, postUrl, type PostEntry } from '@/utils/posts';
+import { getLatestPosts, postUrl, type PostEntry } from '@/utils/posts';
 
 interface Props {
   lang: Lang;
@@ -13,7 +13,7 @@ interface Props {
 
 const { lang, limit = 3, showTitle = true, class: className } = Astro.props as Props;
 
-const posts = getPostsForLang(lang).slice(0, limit);
+const posts = getLatestPosts(lang, limit);
 ---
 
 {

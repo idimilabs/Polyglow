@@ -138,3 +138,18 @@ export function countPostsByCategory(lang: Lang, slug: string): number {
 export function countPostsByTag(lang: Lang, slug: string): number {
   return getPostsByTag(lang, slug).length;
 }
+
+export function getLatestPosts(lang: Lang, limit = 3): Array<PostEntry> {
+  return getPostsForLang(lang).slice(0, limit);
+}
+
+export function getRelatedPosts(
+  lang: Lang,
+  category: string,
+  excludeId?: string,
+  limit = 3,
+): Array<PostEntry> {
+  return getPostsByCategory(lang, category)
+    .filter((post) => !excludeId || post.id !== excludeId)
+    .slice(0, limit);
+}
