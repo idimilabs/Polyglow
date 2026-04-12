@@ -32,6 +32,7 @@ Astrology is designed for content sites that need to feel credible, load fast, a
 - **Performance without the usual tradeoffs**: Astro static output, responsive images, minimal client-side JavaScript, prefetching, and Pagefind search keep pages fast.
 - **Production-friendly stack**: Astro 6, Tailwind CSS 4, MDX, Partytown, and Cloudflare-ready deployment.
 - **Typed content workflow**: posts, pages, and authors all use schema-validated collections, so content scales without chaos.
+- **Thoughtful real-world details**: theme switching, language switching, related posts, latest posts, author pages, and localized search are already wired up.
 
 ## Built for
 
@@ -46,34 +47,54 @@ Astrology is designed for content sites that need to feel credible, load fast, a
 ### Publishing experience
 
 - Locale-aware routes under `src/pages/[lang]/`
+- Locale-prefixed routing with Astro's built-in i18n handling
 - Posts, pages, and author profiles powered by Astro Content Collections
 - MDX authoring with typed frontmatter validation
-- Category, tag, author, pagination, RSS, and search pages included
+- Category, tag, author, pagination, RSS, search, and localized 404 pages included
+- Related posts and latest posts widgets included out of the box
 
 ### Growth and discoverability
 
 - Search powered by Pagefind
 - Sitemap generation with locale mappings
 - RSS feeds for the default locale and localized routes
-- SEO metadata support across the site structure
+- Canonical URLs, language alternates, Open Graph, Twitter cards, and JSON-LD metadata
+- Article metadata can automatically pick up `lastModified` from Git history
 
 ### Performance and UX
 
 - Static output for lean hosting and fast delivery
-- Responsive image handling and optimized formats
+- Responsive image handling for local and remote sources with `astro:assets`
+- AVIF output, priority loading controls, and remote image size inference support
 - Minimal JavaScript footprint with Astro-first rendering
+- Astro View Transitions support with a reusable page-init/cleanup system
 - Theme switching, language switching, and mobile navigation included
+
+## Implementation details that matter
+
+- `astro-seo` is configured with canonical URLs, per-locale alternates, `x-default`, Open Graph, Twitter cards, and JSON-LD for both pages and articles.
+- Posts can surface `lastModified` automatically through a remark plugin that reads Git history and falls back to filesystem timestamps when needed.
+- The image layer wraps `astro:assets` so the same component can handle optimized local images and remote images without changing authoring ergonomics.
+- Astro View Transitions are enabled, and interactive UI components re-initialize cleanly through a shared page lifecycle utility.
+- The author page includes structured `Person` data and an optional GitHub activity calendar backed by the GitHub GraphQL API.
+- The 404 experience is localized and can adapt links and copy based on the current path or browser language.
 
 ## Feature snapshot
 
 | Area | Included |
 | --- | --- |
 | Internationalization | 10 locales: `zh`, `en`, `fr`, `es`, `ru`, `ja`, `ko`, `pt`, `de`, `id` |
+| Routing behavior | Default locale prefixing with Astro's built-in i18n routing |
 | Content modeling | Typed collections for posts, pages, and authors |
-| SEO | Canonical URLs, Open Graph, JSON-LD, sitemap, RSS |
+| Taxonomy and discovery | Categories, tags, pagination, related posts, latest posts, search |
+| SEO | Canonical URLs, language alternates, Open Graph, Twitter cards, JSON-LD, sitemap, RSS |
+| Metadata freshness | Automatic `lastModified` from Git history with filesystem fallback |
 | Search | Pagefind |
+| Images | `astro:assets` wrapper for optimized local and remote images |
+| UX | Theme switcher, language switcher, mobile nav, localized 404, View Transitions |
 | Styling | Tailwind CSS 4 |
 | Authoring | Markdown + MDX |
+| Author pages | Bio, socials, latest posts, optional GitHub activity calendar |
 | Analytics support | Partytown-ready analytics integration |
 | Deployment | Static output with Wrangler deployment script |
 
@@ -142,6 +163,7 @@ Astrology ships with 10 locales out of the box, with `en` as the default languag
 - Language-aware routes live in `src/pages/[lang]/`
 - Locale definitions are managed in `src/utils/i18n.ts`
 - Collection schemas validate locale usage in `src/content.config.ts`
+- Built-in Astro i18n routing handles locale-prefixed URLs for every supported language
 
 ### Add a new locale
 
