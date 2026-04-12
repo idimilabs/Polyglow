@@ -1,6 +1,6 @@
 <div align="center">
 
-# Astrology
+# Polyglow
 
 ### The Astro theme for multilingual publishing that looks polished on day one
 
@@ -8,23 +8,23 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![Node](https://img.shields.io/badge/Node-%E2%89%A5%2020-339933?logo=node.js)](https://nodejs.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Live Demo](https://img.shields.io/badge/Live_Demo-astrology.idimi.com-0f172a)](https://astrology.idimi.com)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-polyglow.idimi.com-0f172a)](https://polyglow.idimi.com)
 
-**Astrology** is a multilingual Astro theme for founders, writers, publishers, and teams who want one content site to serve multiple markets without maintaining multiple codebases.
+**Polyglow** is a multilingual Astro theme for founders, writers, publishers, and teams who want one content site to serve multiple markets without maintaining multiple codebases.
 
 It gives you locale-aware routing, typed content collections, built-in SEO, fast search, RSS, responsive images, and an editorial reading experience that already feels production-ready.
 
-[View live demo](https://astrology.idimi.com) · [Get started](#quick-start) · [See why it converts](#why-teams-pick-astrology)
+[View live demo](https://polyglow.idimi.com) · [Get started](#quick-start) · [See why it converts](#why-teams-pick-polyglow)
 
-<img src="./public/screenshot.webp" alt="Astrology theme preview" width="100%" />
+<img src="./public/screenshot.webp" alt="Polyglow theme preview" width="100%" />
 
 </div>
 
-## Why teams pick Astrology
+## Why teams pick Polyglow
 
 Most blog starters help you publish content. Very few help you publish it well across languages.
 
-Astrology is designed for content sites that need to feel credible, load fast, and scale internationally without turning localization into a maintenance problem.
+Polyglow is designed for content sites that need to feel credible, load fast, and scale internationally without turning localization into a maintenance problem.
 
 - **One theme, multiple markets**: ship a single site with language-prefixed routes and centralized translation dictionaries.
 - **Editorial by default**: layouts are tuned for long-form reading, strong hierarchy, tags, categories, author pages, and featured content.
@@ -81,22 +81,22 @@ Astrology is designed for content sites that need to feel credible, load fast, a
 
 ## Feature snapshot
 
-| Area | Included |
-| --- | --- |
-| Internationalization | 10 locales: `zh`, `en`, `fr`, `es`, `ru`, `ja`, `ko`, `pt`, `de`, `id` |
-| Routing behavior | Default locale prefixing with Astro's built-in i18n routing |
-| Content modeling | Typed collections for posts, pages, and authors |
-| Taxonomy and discovery | Categories, tags, pagination, related posts, latest posts, search |
-| SEO | Canonical URLs, language alternates, Open Graph, Twitter cards, JSON-LD, sitemap, RSS |
-| Metadata freshness | Automatic `lastModified` from Git history with filesystem fallback |
-| Search | Pagefind |
-| Images | `astro:assets` wrapper for optimized local and remote images |
-| UX | Theme switcher, language switcher, mobile nav, localized 404, View Transitions |
-| Styling | Tailwind CSS 4 |
-| Authoring | Markdown + MDX |
-| Author pages | Bio, socials, latest posts, optional GitHub activity calendar |
-| Analytics support | Partytown-ready analytics integration |
-| Deployment | Static output with Wrangler deployment script |
+| Area                   | Included                                                                              |
+| ---------------------- | ------------------------------------------------------------------------------------- |
+| Internationalization   | 10 locales: `zh`, `en`, `fr`, `es`, `ru`, `ja`, `ko`, `pt`, `de`, `id`                |
+| Routing behavior       | Default locale prefixing with Astro's built-in i18n routing                           |
+| Content modeling       | Typed collections for posts, pages, and authors                                       |
+| Taxonomy and discovery | Categories, tags, pagination, related posts, latest posts, search                     |
+| SEO                    | Canonical URLs, language alternates, Open Graph, Twitter cards, JSON-LD, sitemap, RSS |
+| Metadata freshness     | Automatic `lastModified` from Git history with filesystem fallback                    |
+| Search                 | Pagefind                                                                              |
+| Images                 | `astro:assets` wrapper for optimized local and remote images                          |
+| UX                     | Theme switcher, language switcher, mobile nav, localized 404, View Transitions        |
+| Styling                | Tailwind CSS 4                                                                        |
+| Authoring              | Markdown + MDX                                                                        |
+| Author pages           | Bio, socials, latest posts, optional GitHub activity calendar                         |
+| Analytics support      | Partytown-ready analytics integration                                                 |
+| Deployment             | Static output with Wrangler deployment script                                         |
 
 ## Quick Start
 
@@ -108,8 +108,8 @@ Astrology is designed for content sites that need to feel credible, load fast, a
 ### Install
 
 ```bash
-git clone https://github.com/idimilabs/Astrology.git
-cd Astrology
+git clone https://github.com/idimilabs/Polyglow.git
+cd Polyglow
 pnpm install
 ```
 
@@ -157,7 +157,7 @@ The site is configured for static output and includes a Wrangler-based deploy sc
 
 ## How multilingual support works
 
-Astrology ships with 10 locales out of the box, with `en` as the default language.
+Polyglow ships with 10 locales out of the box, with `en` as the default language.
 
 - Translation dictionaries live in `src/i18n/`
 - Language-aware routes live in `src/pages/[lang]/`
@@ -218,7 +218,7 @@ Without the token, the site still works and falls back gracefully.
 
 ## Why this README is honest
 
-Astrology is not trying to be a general-purpose app starter. It is optimized for content-first sites that need multilingual publishing, strong SEO foundations, and a premium reading experience.
+Polyglow is not trying to be a general-purpose app starter. It is optimized for content-first sites that need multilingual publishing, strong SEO foundations, and a premium reading experience.
 
 If your primary use case is a marketing site, documentation portal, or editorial publication with multiple locales, this theme is a strong starting point. If you need a dashboard-heavy product UI, you should start elsewhere.
 

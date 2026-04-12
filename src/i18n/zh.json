@@ -1,7 +1,7 @@
 {
   "site": {
-    "name": "Astrology",
-    "titleTemplate": "%s · Astrology",
+    "name": "Polyglow",
+    "titleTemplate": "%s · Polyglow",
     "description": "在生活的海洋，创业的波涛和投资的迷雾中前行",
     "twitter": {
       "site": "@idimilabs",
@@ -44,7 +44,7 @@
   "headings": {
     "home": {
       "title": "首页",
-      "h1": "Astrology",
+      "h1": "Polyglow",
       "h2": "在生活的海洋，创业的波涛和投资的迷雾中前行"
     },
     "build": { "h1": "创业", "h2": "从零到一的道路，洞察机遇与挑战" },

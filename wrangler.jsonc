@@ -1,9 +1,9 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "astrology",
+  "name": "polyglow",
   "compatibility_date": "2026-03-17",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
-    "directory": "./dist"
-  }
+    "directory": "./dist",
+  },
 }

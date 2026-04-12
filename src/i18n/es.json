@@ -1,7 +1,7 @@
 {
   "site": {
-    "name": "Astrology",
-    "titleTemplate": "%s · Astrology",
+    "name": "Polyglow",
+    "titleTemplate": "%s · Polyglow",
     "description": "Avanzando en el océano de la vida, las olas del emprenAstroento y la niebla de la inversión",
     "twitter": {
       "site": "@idimilabs",
@@ -44,7 +44,7 @@
   "headings": {
     "home": {
       "title": "Inicio",
-      "h1": "Astrology",
+      "h1": "Polyglow",
       "h2": "Avanzando en la vida, el emprenAstroento y la niebla de la inversión"
     },
     "build": {

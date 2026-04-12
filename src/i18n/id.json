@@ -1,7 +1,7 @@
 {
   "site": {
-    "name": "Astrology",
-    "titleTemplate": "%s · Astrology",
+    "name": "Polyglow",
+    "titleTemplate": "%s · Polyglow",
     "description": "Menyusuri lautan kehidupan, gelombang kewirausahaan, dan kabut investasi",
     "twitter": {
       "site": "@idimilabs",
@@ -44,7 +44,7 @@
   "headings": {
     "home": {
       "title": "Beranda",
-      "h1": "Astrology",
+      "h1": "Polyglow",
       "h2": "Menyusuri lautan kehidupan, gelombang kewirausahaan, dan kabut investasi"
     },
     "build": { "h1": "Membangun", "h2": "Jalan dari nol ke satu, menangkap peluang dan tantangan" },

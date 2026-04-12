@@ -1,7 +1,7 @@
 {
   "site": {
-    "name": "Astrology",
-    "titleTemplate": "%s · Astrology",
+    "name": "Polyglow",
+    "titleTemplate": "%s · Polyglow",
     "description": "Avançando pelo oceano da vida, pelas ondas do empreendedorismo e pela névoa dos investimentos",
     "twitter": {
       "site": "@idimilabs",
@@ -44,7 +44,7 @@
   "headings": {
     "home": {
       "title": "Início",
-      "h1": "Astrology",
+      "h1": "Polyglow",
       "h2": "Avançando pelo oceano da vida, pelas ondas do empreendedorismo e pela névoa dos investimentos"
     },
     "build": { "h1": "Construir", "h2": "Do zero ao um: identificar oportunidades e desafios" },

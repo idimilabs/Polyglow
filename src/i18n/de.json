@@ -1,7 +1,7 @@
 {
   "site": {
-    "name": "Astrology",
-    "titleTemplate": "%s · Astrology",
+    "name": "Polyglow",
+    "titleTemplate": "%s · Polyglow",
     "description": "Vorwärts durch den Ozean des Lebens, die Wellen des Unternehmertums und den Nebel der Investitionen",
     "twitter": {
       "site": "@idimilabs",
@@ -44,7 +44,7 @@
   "headings": {
     "home": {
       "title": "Startseite",
-      "h1": "Astrology",
+      "h1": "Polyglow",
       "h2": "Vorwärts durch den Ozean des Lebens, die Wellen des Unternehmertums und den Nebel der Investitionen"
     },
     "build": {

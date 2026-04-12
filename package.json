@@ -1,12 +1,12 @@
 {
-  "name": "astrology-i18n",
-  "description": "A multilingual Astro 6 blog theme with i18n, SEO, and optimized images.",
+  "name": "polyglow",
+  "description": "A multilingual Astro 6 theme for content-first publishing.",
   "type": "module",
   "version": "6.0.0",
-  "homepage": "https://astrology.idimi.com",
+  "homepage": "https://polyglow.idimi.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/idimilabs/Astrology-i18n.git"
+    "url": "https://github.com/idimilabs/Polyglow.git"
   },
   "keywords": [
     "astro",

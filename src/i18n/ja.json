@@ -1,7 +1,7 @@
 {
   "site": {
-    "name": "Astrology",
-    "titleTemplate": "%s · Astrology",
+    "name": "Polyglow",
+    "titleTemplate": "%s · Polyglow",
     "description": "人生という大海、起業の波、投資の霧の中を進む",
     "twitter": {
       "site": "@idimilabs",
@@ -44,7 +44,7 @@
   "headings": {
     "home": {
       "title": "ホーム",
-      "h1": "Astrology",
+      "h1": "Polyglow",
       "h2": "人生という大海、起業の波、投資の霧の中を進む"
     },
     "build": { "h1": "起業", "h2": "ゼロからイチへの道、機会と課題を見極める" },

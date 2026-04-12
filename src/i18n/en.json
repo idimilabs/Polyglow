@@ -1,7 +1,7 @@
 {
   "site": {
-    "name": "Astrology",
-    "titleTemplate": "%s · Astrology",
+    "name": "Polyglow",
+    "titleTemplate": "%s · Polyglow",
     "description": "Navigating life, entrepreneurship, and the fog of investing",
     "twitter": {
       "site": "@idimilabs",
@@ -44,7 +44,7 @@
   "headings": {
     "home": {
       "title": "Home",
-      "h1": "Astrology",
+      "h1": "Polyglow",
       "h2": "Navigating life, entrepreneurship, and the fog of investing"
     },
     "build": {

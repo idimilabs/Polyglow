@@ -1,7 +1,7 @@
 {
   "site": {
-    "name": "Astrology",
-    "titleTemplate": "%s · Astrology",
+    "name": "Polyglow",
+    "titleTemplate": "%s · Polyglow",
     "description": "Двигаясь вперёд через океан жизни, волны предпринимательства и туман инвестиций",
     "twitter": {
       "site": "@idimilabs",
@@ -44,7 +44,7 @@
   "headings": {
     "home": {
       "title": "Главная",
-      "h1": "Astrology",
+      "h1": "Polyglow",
       "h2": "Двигаясь вперёд через океан жизни, волны предпринимательства и туман инвестиций"
     },
     "build": { "h1": "Строить", "h2": "Путь от нуля к единице: замечать возможности и вызовы" },
