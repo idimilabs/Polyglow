@@ -24,6 +24,7 @@ interface Props {
   rounded?: boolean;
 
   asPicture?: boolean;
+  optimizeRemote?: boolean;
 }
 
 const {
@@ -43,13 +44,15 @@ const {
   height,
   asPicture = true,
   rounded = true,
+  optimizeRemote = false,
 } = Astro.props as Props;
 
 const pictureFormats: Array<'avif'> = ['avif'];
 
 const isRemote = typeof src === 'string' && /^(https?:)?\/\/.*/.test(src);
 
-const shouldInfer = inferSize ?? isRemote;
+const shouldOptimizeRemote = isRemote && optimizeRemote;
+const shouldInfer = inferSize ?? (!isRemote || shouldOptimizeRemote);
 
 // CSS object-fit and object-position styles (ensure proper browser-side cropping)
 const fitClass =
@@ -115,7 +118,7 @@ const basePictureProps = {
 ---
 
 {
-  isRemote && !shouldInfer ? (
+  isRemote && !shouldOptimizeRemote ? (
     <img
       src={src}
       alt={alt}
